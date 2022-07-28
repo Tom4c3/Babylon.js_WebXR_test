@@ -7,7 +7,7 @@
 
       let canvas; //canvas要素 (描画領域)
       let engine; //Babylon.jsによる描画機能(three.jsとか(あとでこれをBabylon.jsとする))
-      let scene; //仮想3D空間
+      let scene; //3D空間
 
       //ページの読み込み終了後に各種初期化を行う
       window.onload = function() {
@@ -121,13 +121,13 @@
         //上記設定をoctaに適用
       //octa.addBehavior(sixDofDragBehavior);
 
+        //myObj用のsixDof変数（使い回しできない）
         let sixDofDragBehavior2 = new BABYLON.SixDofDragBehavior();
         //片手での操作のみ受け付ける(両手でのスケール操作の挙動がおかしいため)
-        sixDofDragBehavior2.allowMultiPointer=true;
+        sixDofDragBehavior2.allowMultiPointer=false;
         //離れた位置からポインターで操作する場合は位置のみ追従
         sixDofDragBehavior2.rotateWithMotionController=true;
-        //上記設定をboxに適用
-        //上記設定をmaObjに適用
+        //上記設定をmyObjに適用
         myObj.addBehavior(sixDofDragBehavior2);
       }
     </script>
